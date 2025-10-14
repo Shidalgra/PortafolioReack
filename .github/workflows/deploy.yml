@@ -19,16 +19,16 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
-        cache-dependency-path: './porfafolio-react/package-lock.json'
+        cache-dependency-path: './portafolio-react/package-lock.json'
         
     - name: Install dependencies
       run: |
-        cd porfafolio-react
+        cd portafolio-react
         npm ci
         
     - name: Build
       run: |
-        cd porfafolio-react
+        cd portafolio-react
         npm run build
         
     - name: Deploy to GitHub Pages
@@ -36,4 +36,4 @@ jobs:
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./porfafolio-react/dist
+        publish_dir: ./portafolio-react/dist
